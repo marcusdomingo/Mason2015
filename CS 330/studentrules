@@ -1,0 +1,39 @@
+% Author: Marcus Domingo
+% G Number: G00987958
+% Last Modified: 11/6/2016; added comments
+
+% recursive check on direct and indirect prereq
+prereq_chain(A,B) :- prereq(A,B).
+prereq_chain(A,B) :- prereq(A,C),prereq_chain(C,B).
+
+% symmetrical representation of coreq
+coreq_symm(A,B) :- coreq(A,B);coreq(B,A).
+
+% checks prereq and coreq pairs for dates scheduled for student X
+% use cut fail to return true when there is an invalid pair
+invalid_pair(X,A,B) :- prereq_chain(A,B),entry(X,A,[_,Z]),entry(X,B,[_,W]),Z<W,!,fail.
+invalid_pair(X,A,B) :- prereq_chain(A,B),entry(X,A,[Y,Z]),entry(X,B,[U,W]),Z=W,prereq_chain(Y,U),!,fail.
+invalid_pair(X,A,B) :-
+coreq_symm(A,B),entry(X,A,[Y,Z]),entry(X,B,[U,W]),Z=W,Y=U,!,fail.
+invalid_pair(_,_,_).
+
+% list is approved_list
+list(D,[H|T]) :- approved_list(D,[H|T]).
+
+% recursive check for a member in a list
+member(H,[H|_]).
+member(X,[_|T]) :- member(X,T).
+
+% checks if A is not in the list for student X
+% use cut fail to return true when there is a bad course
+bad_course(X,A) :- student(X,D,name(_,_)),entry(X,A,[_,_]),list(D,[H|T]),member(A,[H|T]),!,fail.
+bad_course(_,_).
+
+% checks if there are any invalid_pair or bad_course for student X
+% use cut fail to return true when the schedule is valid
+valid_schedule(X) :- entry(X,A,[_,_]),bad_course(X,A),!,fail.
+valid_schedule(X) :-
+entry(X,A,[_,_]),entry(X,B,[_,_]),(prereq_chain(A,B);coreq_symm(A,B)),invalid_pair(X,A,B),!,fail.
+valid_schedule(X) :- invalid_pair(X,_,_),!,fail.
+valid_schedule(_).
+

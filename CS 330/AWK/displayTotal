@@ -1,0 +1,4 @@
+NR==1 || $1==prevkey {if($4 ~ /[0-9]+\.[0-9][0-9]$/){if($5 == "deposit") total = total + $4; else total = total - $4;}}
+NR>1 && $1!=prevkey {printf "%-20s $%.2f\n", prevname, total; total = $4}
+{prevkey = $1; $1 = "";$4 = "";$5 = "";prevname = $0}
+END {printf "%-20s $%.2f\n", prevname, total}

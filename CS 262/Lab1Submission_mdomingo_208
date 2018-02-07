@@ -1,0 +1,38 @@
+Script started on Mon 31 Aug 2015 01:00:34 PM EDT
+bash-4.1$ uname -a
+Linux zeus-1 2.6.32-504.30.3.el6.centos.plus.x86_64 #1 SMP Wed Jul 15 00:52:19 UTC 2015 x86_64 x86_64 x86_64 GNU/Linux
+bash-4.1$ ls
+hermes_web  lab1  lab1_mdomingo_208  lab1_mdomingo_208.c  Lab1Submission_mdomingo_208
+bash-4.1$ cas[Kr[Kt lab1_mdomingo_208.c
+// Marcus Domingo G00987958
+// CS 262, Lab Section 208
+// Lab 1
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+
+	printf("Hello World!\n");
+	printf("My name is Marcus Domingo.\n");
+	return 0;
+
+}
+bash-4.1$ rm lab1 [K lab1_mdomingo_208
+bash-4.1$ make lab1_mdomingo_208
+cc     lab1_mdomingo_208.c   -o lab1_mdomingo_208
+bash-4.1$ ls
+hermes_web  lab1_mdomingo_208  lab1_mdomingo_208.c  Lab1Submission_mdomingo_208
+bash-4.1$ ./lab1_mdomingo_208
+Hello World!
+My name is Marcus Domingo.
+bash-4.1$ gcc -o lab1 lab1_mdomingo_208.c
+bash-4.1$ ls
+hermes_web  lab1  lab1_mdomingo_208  lab1_mdomingo_208.c  Lab1Submission_mdomingo_208
+bash-4.1$ ./lab1
+Hello World!
+My name is Marcus Domingo.
+bash-4.1$ exit
+
+Script done on Mon 31 Aug 2015 01:06:02 PM EDT

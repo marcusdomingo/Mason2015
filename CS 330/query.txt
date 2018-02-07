@@ -1,0 +1,146 @@
+To Run in Zeus:
+BOTH
+	[studentfacts].
+	[studentrules].
+AND
+	consult(studentfacts).
+	consult(studentrules).
+worked for me.
+
+1:
+	?- prereq_chain(bio101,X).
+	X = bio102 ;
+	X = bio205 ;
+	X = anat340 ;
+	false.
+	
+English:
+	The following have bio101 as a prereq: bio102, bio205(indirect), anat340(indirect).
+
+2:
+	?- entry(1,X,[_,_]).
+	X = astr250 ;
+	X = anat340 ;
+	X = bio101 ;
+	X = chem101 ;
+	X = eng100 ;
+	X = bio102 ;
+	X = chem102 ;
+	X = eng101.
+
+English:
+	Student 1 is entered in the classes astr250, anat340, bio101, chem101, eng100, bio102, chem102, eng101.
+
+3:
+	?- coreq(X,Y).
+	X = astr250,
+	Y = anat340.
+
+English:
+	astr250 and anat340 are the only corequisites.
+	
+4:
+	?- approved_list(sci,X).
+	X = [bio101, bio102, bio205, chem101, chem102, astr250, anat340, eng100, eng101].
+	
+English:	
+	The classes in the approved list are bio101, bio102, bio205, chem101, chem102, astr250, anat340, eng100, eng101.
+	
+5:
+	?- invalid_pair(2,bio101,bio102).
+	true.
+	
+English:
+	Does Student 2 have an invalid pairing of bio101, bio102?
+	Returns true because bio102 is scheduled before bio101.
+
+6:
+	?- invalid_pair(3,bio101,bio205).
+	true.
+	
+	?- invalid_pair(3,bio102,bio205).
+	true.
+
+English:
+	Does Student 3 have an invalid pairing of bio101, bio205?
+	Returns true because bio101, bio102 aren't scheduled at all.
+
+7:
+	?- invalid_pair(1,bio101,bio102).
+	false.
+
+English:	
+	Does Student 1 have an invalid pairing of bio101, bio102?
+	Returns false because bio101 is scheduled before bio101.
+	
+8:
+	?- invalid_pair(4,astr250,anat340).
+	true.
+	
+English:	
+	Does Student 4 have an invalid pairing of astr250, anat340?
+	Returns true because astr250 and anat340 aren't scheduled together.
+	
+9:
+	?- invalid_pair(1,astr250,anat340).
+	false.
+	
+English:	
+	Does Student 4 have an invalid pairing of astr250, anat340?
+	Returns false because astr250 and anat340 are scheduled together.
+	
+10:
+	?- bad_course(5,cs330).
+	true.
+	
+English:	
+	Is Student 5's course cs330 a bad course?
+	Returns true because cs330 isn't in the approved list of courses
+	
+11:
+	?- bad_course(5,bio101).
+	false.
+
+English:	
+	Is Student 5's course bio101 a bad course?
+	Returns false because bio101 is in the approved list of courses.
+	
+12:
+	?- valid_schedule(1).
+	true.
+	
+English:	
+	Does student 1 have a valid schedule?
+	Returns true because all pairs are valid and all courses are good.
+
+13:
+	?- valid_schedule(2).
+	false.
+
+English:	
+	Does student 2 have a valid schedule?
+	Returns false because 2 has an invalid pair.
+
+14:
+	?- valid_schedule(3).
+	false.
+	
+English:	
+	Does student 3 have a valid schedule?
+	Returns false because 3 has an invalid pair.
+
+15:
+	?- valid_schedule(4).
+	false.
+	
+English:	
+	Does student 4 have a valid schedule?
+	Returns false because 4 has an invalid pair.
+
+16:
+	?- valid_schedule(5).
+	false.
+
+English:	
+	Does Student 5 have a valid schedule?
+	Returns false because 5 has a bad course.

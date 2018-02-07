@@ -1,0 +1,39 @@
+% Author: Marcus Domingo 
+% G Number: G00987958
+% Last Modified: 11/6/2016; added more facts
+
+
+approved_list(sci,[bio101,bio102,bio205,chem101,chem102,astr250,anat340,eng100,eng101]).
+prereq(spring,summer).
+prereq(summer,fall).
+prereq(bio101,bio102).
+prereq(bio102,bio205).
+prereq(chem101,chem102).
+prereq(bio102,anat340).
+prereq(chem102,anat340).
+prereq(eng100,eng101).
+coreq(astr250,anat340).
+student(1,sci,name(marcus,domingo)).
+student(2,sci,name(bad,direct)).
+student(3,sci,name(bad,indirect)).
+student(4,sci,name(bad,coreq)).
+student(5,sci,name(bad,course)).
+entry(1,astr250,[summer,2017]).
+entry(1,anat340,[summer,2017]).
+entry(1,bio101,[fall,2016]).
+entry(1,chem101,[fall,2016]).
+entry(1,eng100,[fall,2016]).
+entry(1,bio102,[spring,2017]).
+entry(1,chem102,[spring,2017]).
+entry(1,eng101,[fall,2017]).
+entry(2,bio101,[fall,2016]).
+entry(2,bio102,[summer,2016]).
+entry(3,bio205,[fall,2015]).
+entry(4,bio101,[fall,2016]).
+entry(4,chem101,[fall,2016]).
+entry(4,bio102,[spring,2017]).
+entry(4,chem102,[spring,2017]).
+entry(4,astr250,[fall,2017]).
+entry(4,anat340,[fall,2018]).
+entry(5,bio101,[fall,2016]).
+entry(5,cs330,[fall,2016]).

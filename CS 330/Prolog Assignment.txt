@@ -1,0 +1,107 @@
+           CS330 - Prolog Programming Assignment - Fall 2016
+	
+DUE: 11:59PM November 7.
+
+
+This assignment concerns facts and rules that might be part of a larger
+(Prolog-style) system for students (proposed) academic schedules. 
+
+FACTS:
+
+For each student there will be a fact that gives a student number, major and name:
+
+	student(12345,cs,name(bob, smith)).
+
+For each student there will be several facts about their plan of study, such as:
+
+	entry(12345,cs211,[fall,1998]).
+
+Note that, for variety’s sake, dates and names are handled differently.
+Also there will facts about the university's prerequisite policies, such as:
+
+	prereq(cs211,cs330).
+	coreq(phys211,phys212).
+
+(if A and B are corequisites they MUST be taken at the same time). Further
+there is a list of courses approved for each major that should appear as:
+
+approved_list(cs,[cs211,cs330,cs450,cs480,phys211,phys212]).
+
+You will need additional facts about how semesters are ordered; they are only
+fall, spring, summer.
+
+RULES:
+
+You will write the following rules:
+
+  prereq_chain(A,B)      This tests if A is a prereq of B, even indirectly.
+
+  invalid_pair(X,A,B)    This tests if the student with number X has planned 
+			 to take B, where A is a prerequisite for B, and A is 
+			 not planned earlier than B or not planned at all.
+
+  bad_course(X,A)        This tests if the X is taking an unapproved course A.
+
+  valid_schedule(X)      This test whether student X has a valid plan.
+
+A plan of study is valid if there are no unapproved courses and no invalid pairs.
+
+You will need to write other auxillary rules as well. You will need some to
+test the chronological order of course entries.
+
+ASSIGNMENT: 
+Generate a set of facts to test your rules. These should be of your own invention 
+and should not be copied from a university catalog. You must write the rules above.
+You will submit three text files to the TA (Ivan Avramovic <iavramo2@gmu.edu>).
+Your facts, your rules, and a text file.  The last text file will give at least 
+10 queries that demonstrate the range of queries that are possible.
+You should briefly annotate each query to indicate what the corresponding query
+would be in english. If there is something the TA needs to know to run your code
+(on Zeus) you should mention that too.
+
+GRADING: 
+You will create your own facts, that will adequately test the rules.
+Your queries must be varied. 
+You will be graded on completeness, correctness, your facts and your queries.
+We will test your code on our own facts as well.
+
+
+HELP: You may get help from anyone with Prolog, but write the assignment yourself. 
+This pertains to creating the facts, rules, and queries.  See the 
+CS Department honor policy on projects on the the department's webpage.
+
+
+PREPARING:  Study Appendix A the text.  
+First try just starting and stopping (see table below). 
+
+Files: Before entering a Prolog session, create a file (using any editor) that
+contains the facts and rules you wish to test. Start with simple predicates.  
+  Avoid blanks between the predicate and the left parenthesis 
+  Start variable names with Capitals. 
+  Start predicates, facts and data names with lower case letters. 
+  Don't forget the period at the end of facts and rules (and queries). 
+
+Starting:  At the Unix prompt, type the Unix command "prolog" to start
+interacting with the Quintus Prolog interpreter on the GMU server.  To load 
+your facts and/or rules from a file called file1 into the session, type 
+[file1].  ending with a period.  If you entered Prolog while not in the
+directory containing the file, give the full path, within single quotes: 
+['pro/file1']. (You can also use the consult() command as described in the 
+text.) You can load two files at once, like this: [factfile, rulefile]. If 
+you unintentionally hit the <return> key without the period, just type a 
+period and another <return>.  After loading your file(s), type in queries and
+you'll get the answers.
+
+Stopping:  Before you start anything, know how to stop it! To halt a Prolog 
+session, use halt. which is a Prolog predicate with no arguments, with the 
+side-effect of exiting Prolog.  To stop an unresponsive Prolog process that
+may be in an infinite loop, use <control-c>  a .
+
+Tracing:  For debugging, you can have the Prolog processor trace the steps by 
+which it reached its conclusions.  This can get pretty complex, though, so you
+may want to turn it off.  To start the process type trace. and to turn it off,
+use notrace.
+
+Online help: To get Prolog help, type the special predicate help. which tells 
+you about the special predicate manual(...).  You can also search Google for 
+Quintus Prolog.

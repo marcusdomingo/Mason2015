@@ -1,0 +1,89 @@
+Script started on Sun 13 Sep 2015 10:49:54 PM EDT
+bash-4.1$ uname -a
+Linux zeus-1 2.6.32-573.3.1.el6.centos.plus.x86_64 #1 SMP Fri Aug 14 01:00:05 UTC 2015 x86_64 x86_64 x86_64 GNU/Linux
+bash-4.1$ ls
+hermes_web  lab1_mdomingo_208	 Lab1Submission_mdomingo_208  Lab2_typescript_mdomingo_208
+lab1	    lab1_mdomingo_208.c  Lab2_mdomingo_208.c	      Makefile
+bash-4.1$ cat Lab2_mdomingo_208.c
+// Marcus Domingo and G00987958
+// CS 262, Lab Section 208
+// Lab 2
+
+#include <stdio.h>
+
+int main()
+{
+	double cost;
+	int percent;
+	double tip;
+	double total;
+
+	printf("Enter the cost of the meal: ");
+	scanf("%lf", &cost);
+	printf("Enter the percentage tip: ");
+	scanf("%d", &percent);
+	
+	tip = ((double) percent/100) * cost;
+	total = tip + cost;
+
+	printf("Price of Meal: %.2lf\nPercentage Tip: %d\nTip: %.2lf\nTotal: %.2lf\n", cost, percent, tip, total);
+
+	return 0;
+}
+bash-4.1$ cat Makefile
+
+CFLAGS=-Wall -g
+
+clean:
+	rm -f Lab2_mdomingo_208
+bash-4.1$ rm Lab2_mdomingo_208
+rm: cannot remove `Lab2_mdomingo_208': No such file or directory
+bash-4.1$ make Lab2_mdomingo_208
+cc -Wall -g    Lab2_mdomingo_208.c   -o Lab2_mdomingo_208
+bash-4.1$ ls
+hermes_web	   lab1_mdomingo_208.c		Lab2_mdomingo_208.c
+lab1		   Lab1Submission_mdomingo_208	Lab2_typescript_mdomingo_208
+lab1_mdomingo_208  Lab2_mdomingo_208		Makefile
+bash-4.1$ Lab2_mdomingo_208
+Enter the cost of the meal: 23.5
+Enter the percentage tip: 10
+Price of Meal: 23.50
+Percentage Tip: 10
+Tip: 2.35
+Total: 25.85
+bash-4.1$ Lab2_mdomingo_208
+Enter the cost of the meal: 23.5
+Enter the percentage tip: 0
+Price of Meal: 23.50
+Percentage Tip: 0
+Tip: 0.00
+Total: 23.50
+bash-4.1$ Lab2_mdomingo_208
+Enter the cost of the meal: -47.23
+Enter the percentage tip: 15
+Price of Meal: -47.23
+Percentage Tip: 15
+Tip: -7.08
+Total: -54.31
+bash-4.1$ Lab2_mdomingo_208
+Enter the cost of the meal: 0
+Enter the percentage tip: 20
+Price of Meal: 0.00
+Percentage Tip: 20
+Tip: 0.00
+Total: 0.00
+bash-4.1$ Lab2_mdomingo_208
+Enter the cost of the meal: 78.63
+Enter the percentage tip: 17
+Price of Meal: 78.63
+Percentage Tip: 17
+Tip: 13.37
+Total: 92.00
+bash-4.1$ make clean[K[K[K[K[K[K clean
+rm -f Lab2_mdomingo_208
+bash-4.1$ ls
+hermes_web  lab1_mdomingo_208	 Lab1Submission_mdomingo_208  Lab2_typescript_mdomingo_208
+lab1	    lab1_mdomingo_208.c  Lab2_mdomingo_208.c	      Makefile
+bash-4.1$ exit
+
+Script done on Sun 13 Sep 2015 10:52:31 PM EDT

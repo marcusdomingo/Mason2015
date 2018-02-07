@@ -1,0 +1,88 @@
+CS262 Lab 6 – Debugging
+Question / Answer Sheet
+
+Student Name: Marcus Domingo                                               G Number: G00987958
+Lab TA: Mohammed                                                           Lab Section: 208
+
+The questions on this sheet should be answered as you progress through Lab 6. They are given in the original order of the main Lab 6 document. Use the original documentation for Lab 6, but write the answers to the questions on this sheet. You will turn in a soft-copy of this sheet as part of your lab submission. Therefore, you may wish to copy and paste this answer sheet to an ASCII text editor, write your answers directly into the editor, and then save the file. NOTE: Do not use any non-ASCII file formats (like Word or ODS format).
+
+It is important that you follow this narrative carefully, and avoid any shortcuts in this lab. The answers to many of the questions you will be given depend upon properly completing the lab in the sequence presented.
+
+Note: This lab must be completed on zeus using the cc compiler. The gnu compiler or compilers on other systems (Mason, Microsoft Visual C++ or XCode) may not give the same results. The TA will be looking for specific answers for the grading of this lab and the use of other compilers may result in incorrect answers.
+
+Step #1:
+
+How many errors appear? 5
+How many warnings appear? 1
+
+Step #2:
+
+Step #3:
+Run the program, and at the prompt, enter the value 10.
+What happens? Segmentation fault (core dumped)
+
+What value is printed after “The sum of integers 0 to 10 is: “ ? 10
+What value *should* have been printed? 55
+
+Step #4:
+How many times does the printf statement you added get executed? 1
+List in order the values output by the printf statement you added: i=10 sum=10
+
+Answer the following questions again, based on the most recent code execution:
+How many times does the printf statement you added get executed? 1
+List the values output by the printf statement you added: i=10 sum=10
+What is the value of sum output by the program in the final statement? 10
+
+Compile and run the code again (using 10 as input). Did the warning message go away? Yes
+
+Now answer the following questions:
+How many times does the printf statement you added get executed? 1
+List the values output by the printf statement you added: i=10 sum=10
+What is the value of sum output by the program in the final statement? 10
+
+Comment out the for loop, and copy it to the line below, this time without the semicolon.
+Compile and run the program again (using 10 as input). Now answer the questions:
+How many times does the printf statement you added get executed? 10
+List the values output by the printf statement you added:
+i=0 sum=0
+i=1 sum=1
+i=2 sum=3
+i=3 sum=6
+i=4 sum=10
+i=5 sum=15
+i=6 sum=21
+i=7 sum=28
+i=8 sum=36
+i=9 sum=45
+What is the value of sum output by the program in the final statement? 45
+Is the final value of sum correct? (Look at your answer to step #3 above) No
+
+You are supposed to add the integers from 0 to 10. Which integer is missing? 10
+
+Compile and run the code again (using 10 as input):
+Answer the following questions:
+How many times does the printf statement you added get executed? 11
+List the values output by the printf statement you added:
+i=0 sum=0
+i=1 sum=1
+i=2 sum=3
+i=3 sum=6
+i=4 sum=10
+i=5 sum=15
+i=6 sum=21
+i=7 sum=28
+i=8 sum=36
+i=9 sum=45
+i=10 sum=55
+What is the value of sum output by the program in the final statement? 55
+
+Step #5:
+Recompile, and run the code. Has the output changed? No
+
+Step #6:
+Create a directory named Lab6_<username>_<labsection>
+Place a copy of your revised lab6.c (containing the changes you made throughout the course of this lab) in this directory.
+Create a text file containing the answers to the questions on your completed lab 6 question/answer sheet, and place it in this directory. NOTE: Do not use any non-ASCII file formats (like Word or ODS format).
+Create a tarfile of this directory and submit it to Blackboard as Lab 6.
+
+*** YOU ARE DONE!!! ***

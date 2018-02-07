@@ -1,0 +1,22 @@
+monitor atm_machine
+{
+	condition notEnough, holdProcesses;
+	double balance, withdraw_amount = 0;
+	
+	
+	void deposit(double x)
+	{
+		balance = balance + x;
+		if(balance >= withdraw_amount) notEnough.signal();
+	}
+	
+	void withdraw(double x)
+	{
+		if(withdraw_amount != 0) holdProcesses.wait();
+		withdraw_amount = x;
+		if(balance < withdraw_amount) notEnough.wait();
+		balance = balance - x;
+		withdraw_amount = 0;
+		holdProcesses.signal();
+	}
+}

@@ -1,0 +1,3 @@
+How to run using example file called "input":
+
+awk -f transactionKey input | sort | awk -f displayTotal

@@ -1,0 +1,19 @@
+Problem 1
+
+set variable x to be 'Research';
+set variable y to be the selection of last name(s) and ssn(s)
+	from the EMPLOYEE table where the department number
+	is the same as the department number for variable x;
+display the results of y;
+
+Problem 2
+
+set variable w to be 'Houston';
+set variable x to be 'ProductZ';
+set variable y to be the selection of last name(s), ssn(s), and hours
+	from the EMPLOYEE and WORKS_ON tables where the project number for
+	variable x is the same as the project number assigned to the employee 
+	in WORKS_ON and the ssn assigned to the employee is the same as the ssn
+	found in WORKS_ON and the department number for variable w is the same
+	for both the department number assigned to the project and the employee;
+display the results of y;

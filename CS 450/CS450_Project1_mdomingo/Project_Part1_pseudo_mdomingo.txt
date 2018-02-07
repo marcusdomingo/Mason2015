@@ -1,0 +1,26 @@
+Problem 1
+
+connect to the database;
+
+create a string for department name 'Research';
+create a string for last name and ssn;
+select the last name and ssn from the from the EMPLOYEE table,
+	where the department number for the department name 'Research'
+	is the same as the department number assigned to the employee
+	and place the retrieved last name and ssn in the corresponding strings;
+print out the last name(s) and ssn(s);
+
+Problem 2
+
+connect to the database;
+
+create a string fro department location 'Houston';
+create a string for project name 'ProductZ';
+create a string for last name, ssn, and hours;
+select the last name, ssn, and hours from the EMPLOYEE and WORKS_ON tables,
+	the project number for the project name 'ProductZ' is the same as the
+	project number assigned to the employee in WORKS_ON and the ssn assigned
+	to the employee is the same as the ssn found in WORKS_ON and the department
+	number for the department location 'Houston' is the same for both the
+	department number assigned to the project and the employee;
+print out the last name(s), ssn(s), and hours;

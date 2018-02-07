@@ -1,0 +1,70 @@
+Lab 7
+Debugging Code with GDB
+
+Answer Sheet
+Name: Marcus Domingo
+
+Lab Section: 208
+
+Complete this answer sheet using the instructions given in the lab. Turn in a hard copy of your completed sheet to your TA by the beginning of your lab next week. All questions are worth 1/2 point, with the exception of question 17 (the last question) which is worth 2 points.
+
+Compiling
+1) Write the size (in bytes) of the executable 7924 (Note: The size in bytes is the number immediately before the date in the output from the ls -l command)
+
+2) Now, recompile using the -g command line option and write the size in bytes of the new executable: 11116
+
+Starting GDB
+3) Copy the first line that is printed when you run gdb: GNU gdb (GDB) Red Hat Enterprise Linux (7.2-83.el6)
+
+4) Now, copy the portion in the quotes on the line that states "This GDB was configured as." For instance, in the example above, you would copy i686-linux-gnu: x86_64-redhat-linux-gnu
+
+Getting Help
+5) Write the number of topics/classes: 12
+
+6) Now, type "help break" to get specific information:
+Write the first line printed after executing the command here: Set breakpoint at specified line or function.
+
+Running a Program
+7) Try it now. What happened?
+
+Starting program: /home/mdomingo/Lab7_mdomingo_208/Lab7 
+Usage: /home/mdomingo/Lab7_mdomingo_208/Lab7 [1 2]
+           1 = Mode 1
+           2 = Mode 2
+
+Program exited normally.
+
+
+8) Try the run command again, this time adding "1" (without quotes) to the command line. What happened this time?
+
+Starting program: /home/mdomingo/Lab7_mdomingo_208/Lab7 1
+Here we are in DebugOption1()
+The sum of integers from 0 to 10 is: 1013
+
+Program exited with code 052.
+
+Setting Breakpoints
+9) At what line number does execution pause? line 55
+
+A Brief Digression
+10) Write what you see as a result: $1 = 1
+
+Stepping Through Code
+11) Use the print statement mentioned above to print the current value of sum. What is its current value? 0
+
+12) Now, use the step command step over the current line. At what line does the execution pause? 58
+
+13) Print the value of sum again. What is its value now? 0
+
+14) Continue stepping through the program until the following line is reached:
+
+sum += sum + i;
+15) Print the value of sum: 0
+
+Displaying Variables
+16) What is the value of the variable 'i' at this point? 6
+
+17) Once you see what the bug is, describe it below (2 points):
+
+The statement is adding the sum 2 times.  The correct way would be sum = sum + i or sum += i.  The way it is written adds the sum twice that's why the output is incorrect.
+Also another bug is that instead of is being i < SIZE, it needs to be i <= SIZE, otherwise we get a sum of 45 when it sould be 55.
